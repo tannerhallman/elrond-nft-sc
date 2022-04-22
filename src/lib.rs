@@ -299,6 +299,12 @@ pub trait ElvenTools {
         self.allowlist().extend(&addresses);
     }
 
+    #[only_owner]
+    #[endpoint(clearAllowlist)]
+    fn clear_allowlist(&self) {
+        self.allowlist().clear();
+    }
+
     // Main mint function - takes the payment sum for all tokens to mint.
     #[payable("EGLD")]
     #[endpoint(mint)]
